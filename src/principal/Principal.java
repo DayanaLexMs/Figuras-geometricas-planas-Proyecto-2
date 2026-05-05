@@ -19,6 +19,7 @@ public class Principal {
         JFRFiguras frmFiguras = new JFRFiguras ();
         frmFiguras.setVisible(true);
         ControladorFigura cntrFigura = new ControladorFigura (frmFiguras);
+        frmFiguras.setLocationRelativeTo(null);
     }
     
 }
