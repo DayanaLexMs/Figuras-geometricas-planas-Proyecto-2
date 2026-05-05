@@ -8,6 +8,7 @@ import modelo.Lado;
 import vista.JFRFiguras;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,6 +17,7 @@ import java.awt.event.ActionEvent;
 public class ControladorFigura implements ActionListener{
     
     JFRFiguras frmFiguras = new JFRFiguras ();
+    private ArrayList <Figura> listaFiguras = new ArrayList <>();
     
     public ControladorFigura(){ 
     }
@@ -127,7 +129,37 @@ public class ControladorFigura implements ActionListener{
     
     public void calcularArea(){
         
+        String figura = this.frmFiguras.cmbFiguras.getSelectedItem().toString();
+        double area = 0;
+        double lad1 = 0;
+        double lad2 = 0;
+        double lad3 = 0;
+        ArrayList <Lado> lados = new ArrayList <>();
         
+        if (figura.equals("Circulo")&&this.frmFiguras.txtVar1.getText().isEmpty()==false){
+            
+            lad1 = Double.parseDouble(this.frmFiguras.txtVar1.getText());
+            Figura f = new Figura (figura, lados);
+            f.agregarLado(new Lado (lad1));
+            listaFiguras.add(f);
+            area = 3.1416 * (lad1*lad1);
+            this.frmFiguras.txtAMostrar.setText("El area del circulo de radio "+lad1+" es: \n"+area);
+            
+        }
+        
+            else if (this.frmFiguras.txtVar1.getText().isEmpty()){
+            
+                this.frmFiguras.txtAMostrar.setText("NO SE PUEDE CALCULAR\nDATOS INCOMPLETOS");
+            
+            }
+        
+        if (figura.equals("Triangulo")&&this.frmFiguras.txtVar1.getText().isEmpty()==false&&this.frmFiguras.txtVar2.getText().isEmpty()==false&&this.frmFiguras.txtVar3.getText().isEmpty()==false) {
+            
+            lad1 = Double.parseDouble(this.frmFiguras.txtVar1.getText());
+            lad2 = Double.parseDouble(this.frmFiguras.txtVar2.getText());
+            lad3 = Double.parseDouble(this.frmFiguras.txtVar3.getText()); 
+           
+        }
         
     }
     
