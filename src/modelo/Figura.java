@@ -38,4 +38,10 @@ public class Figura {
         this.lados = lados;
     }
     
+    public void agregarLado (Lado l){
+        
+        lados.add(l);
+        
+    }
+    
 }
