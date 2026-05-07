@@ -73,8 +73,8 @@ public class ControladorFigura implements ActionListener{
             
             reiniciar();
             this.frmFiguras.lblDigite.setText("Digite el tamaño del lado 1: ");
-            this.frmFiguras.lbl2.setText("Digite el temaño del lado 2: ");
-            this.frmFiguras.lbl3.setText("Digite el temaño del lado 3: ");
+            this.frmFiguras.lbl2.setText("Digite el tamaño del lado 2: ");
+            this.frmFiguras.lbl3.setText("Digite el tamaño del lado 3: ");
             this.frmFiguras.lblDigite.setVisible(true);
             this.frmFiguras.lbl2.setVisible(true);
             this.frmFiguras.lbl3.setVisible(true);
@@ -109,8 +109,11 @@ public class ControladorFigura implements ActionListener{
             
             reiniciar();
             this.frmFiguras.lblDigite.setText("Digite el tamaño de uno de los lados del poligono: ");
+            this.frmFiguras.lbl2.setText("Digite la cantidad de lados del poligono: ");
             this.frmFiguras.lblDigite.setVisible(true);
             this.frmFiguras.txtVar1.setVisible(true);
+            this.frmFiguras.lbl2.setVisible(true);
+            this.frmFiguras.txtVar2.setVisible(true);
             
         }
         
@@ -142,7 +145,7 @@ public class ControladorFigura implements ActionListener{
             Figura f = new Figura (figura, lados);
             f.agregarLado(new Lado (lad1));
             listaFiguras.add(f);
-            area = 3.1416 * (lad1*lad1);
+            area = 3.1416 * (lad1 * lad1);
             this.frmFiguras.txtAMostrar.setText("El area del circulo de radio "+lad1+" es: \n"+area);
             
         }
@@ -158,7 +161,70 @@ public class ControladorFigura implements ActionListener{
             lad1 = Double.parseDouble(this.frmFiguras.txtVar1.getText());
             lad2 = Double.parseDouble(this.frmFiguras.txtVar2.getText());
             lad3 = Double.parseDouble(this.frmFiguras.txtVar3.getText()); 
-           
+            double s = (lad1+lad2+lad3)/2;
+            
+            area = Math.sqrt(s*(s-lad1)*(s-lad2)*(s-lad3));
+            this.frmFiguras.txtAMostrar.setText("El triangulo de datos: \n\nLado 1: "+lad1+"\nLado 2: "+lad2+"\nLado 3: "+lad3+"\nTiene un area de "+area);
+            //Crear figura triangulo
+            
+        }
+        
+        else if (this.frmFiguras.txtVar1.getText().isEmpty()||this.frmFiguras.txtVar2.getText().isEmpty()||this.frmFiguras.txtVar3.getText().isEmpty()){
+            
+                this.frmFiguras.txtAMostrar.setText("NO SE PUEDE CALCULAR\nDATOS INCOMPLETOS");
+            
+        }
+        
+        if (figura.equals("Cuadrado")){
+            
+            lad1 = Double.parseDouble(this.frmFiguras.txtVar1.getText());
+            
+            area = Math.pow(lad1, 4);
+            this.frmFiguras.txtAMostrar.setText("Un cuadrado de lado: "+lad1+"\nTiene un area de: "+area);
+            
+        }
+        
+        else if (this.frmFiguras.txtVar1.getText().isEmpty()){
+            
+            this.frmFiguras.txtAMostrar.setText("NO SE PUEDE CALCULAR\nDATOS INCOMPLETOS");
+            
+        }
+        
+        if (figura.equals("Rectangulo")&&this.frmFiguras.txtVar1.getText().isEmpty()==false&&this.frmFiguras.txtVar2.getText().isEmpty()==false){
+            
+            lad1 = Double.parseDouble(this.frmFiguras.txtVar1.getText());
+            lad2 = Double.parseDouble(this.frmFiguras.txtVar2.getText());
+            
+            area = lad1 * lad2;
+            
+            this.frmFiguras.txtAMostrar.setText("Un rectangulo de lados "+lad1+", "+lad2+"\nTiene un area de: "+area);
+            
+        }
+        
+        else if (this.frmFiguras.txtVar1.getText().isEmpty()||this.frmFiguras.txtVar2.getText().isEmpty()){
+            
+            this.frmFiguras.txtAMostrar.setText("NO SE PUEDE CALCULAR\nDATOS INCOMPLETOS");
+            
+        }
+        
+        if (figura.equals("Poligono regular")&&this.frmFiguras.txtVar1.getText().isEmpty()==false){
+            
+            lad1 = Double.parseDouble(this.frmFiguras.txtVar1.getText()); //lado
+            lad2 = Double.parseDouble(this.frmFiguras.txtVar2.getText()); //n de lados 
+            
+            if (lad2<=2){
+                this.frmFiguras.txtAMostrar.setText("Un poligono regular no puede tener 2 lados o menos, por favor verifique los datos");
+            }
+            
+            area = (lad2*Math.pow(lad1, 2))/(4*Math.tan((3.1416)/lad2));
+            
+            this.frmFiguras.txtAMostrar.setText("Un poligono regular de "+lad2+" lados \nTiene un area de: "+area);
+        }
+        
+        else if (this.frmFiguras.txtVar1.getText().isEmpty()||this.frmFiguras.txtVar2.getText().isEmpty()){
+            
+            this.frmFiguras.txtAMostrar.setText("NO SE PUEDE CALCULAR\nDATOS INCOMPLETOS");
+            
         }
         
     }
@@ -174,7 +240,6 @@ public class ControladorFigura implements ActionListener{
         this.frmFiguras.cmbFiguras.addActionListener(new java.awt.event.ActionListener() {
         
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            
                 cmbFigurasActionPerformed(evt);
         }
     });

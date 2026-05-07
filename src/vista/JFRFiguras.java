@@ -49,11 +49,11 @@ public class JFRFiguras extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("Calculadora de primetro y area de figruras planas");
+        jLabel1.setText("Calculadora de perímetro y área de figuras planas");
 
         jLabel2.setText("Seleccione su figura:");
 
-        cmbFiguras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Circulo", "Triangulo", "Cuadrado", "Rectangulo", "Poligono Regular" }));
+        cmbFiguras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Circulo", "Triangulo", "Cuadrado", "Rectangulo", "Poligono regular" }));
         cmbFiguras.addActionListener(this::cmbFigurasActionPerformed);
 
         txtAMostrar.setColumns(20);
@@ -79,9 +79,6 @@ public class JFRFiguras extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -103,7 +100,11 @@ public class JFRFiguras extends javax.swing.JFrame {
                                 .addComponent(btnPerimetro)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnArea, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(29, 29, 29))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
