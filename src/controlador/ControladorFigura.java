@@ -179,7 +179,7 @@ public class ControladorFigura implements ActionListener{
             
             lad1 = Double.parseDouble(this.frmFiguras.txtVar1.getText());
             
-            area = Math.pow(lad1, 4);
+            area = Math.pow(lad1, 2);
             this.frmFiguras.txtAMostrar.setText("Un cuadrado de lado: "+lad1+"\nTiene un area de: "+area);
             
         }
