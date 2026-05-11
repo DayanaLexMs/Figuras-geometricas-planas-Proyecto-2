@@ -127,6 +127,9 @@ public class ControladorFigura implements ActionListener{
         this.frmFiguras.txtVar1.setVisible(false);
         this.frmFiguras.txtVar2.setVisible(false);
         this.frmFiguras.txtVar3.setVisible(false);
+        this.frmFiguras.txtVar1.setText("");
+        this.frmFiguras.txtVar2.setText("");
+        this.frmFiguras.txtVar3.setText("");
         
     }
     
@@ -151,7 +154,7 @@ public class ControladorFigura implements ActionListener{
         }
         
             else if (this.frmFiguras.txtVar1.getText().isEmpty()){
-            
+                //verificar porque cuando vuelvo al circulo se ejecuta esto
                 this.frmFiguras.txtAMostrar.setText("NO SE PUEDE CALCULAR\nDATOS INCOMPLETOS");
             
             }
