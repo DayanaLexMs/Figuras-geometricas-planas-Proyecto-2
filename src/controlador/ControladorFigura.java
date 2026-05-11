@@ -133,6 +133,9 @@ public class ControladorFigura implements ActionListener{
         
     }
     
+    //aaaa
+    // PORQUE NO SALE ESTOOOO
+    
     public void calcularArea(){
         
         String figura = this.frmFiguras.cmbFiguras.getSelectedItem().toString();
